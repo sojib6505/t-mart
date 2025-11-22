@@ -22,12 +22,12 @@ export default function Home() {
   return (
     <div>
       <Banner></Banner>
-      <div className="container mx-auto bg-[#D9D9D9]  mt-24 p-11">
+      <div className="container mx-auto bg-[#D9D9D9] mt-5 md:mt-24 p-2 md:p-11">
         
         <div>
-          <h1 className="text-3xl text-center  mb-10">{category===''?'Popular':category} Products</h1>
+          <h1 className="text-3xl text-center mb-5 md:mb-10">{category===''?'Popular':category} Products</h1>
         </div>
-        <div className="flex gap-5 text-[#666666] text-xl mb-10">
+        <div className="flex gap-2 md:gap-5 text-[#666666] md:text-xl mb-10">
            <NavLink onClick={()=> categoryHandle('')}>All</NavLink>
            <NavLink onClick={()=>categoryHandle('Furniture')}>Furniture</NavLink>
            <NavLink onClick={()=>categoryHandle('Beauty')}>Beauty</NavLink>
@@ -36,7 +36,7 @@ export default function Home() {
         </div>
          {isLoading && 
             <ClipLoader className="ml-[50%]" color="#36d7b7" loading={isLoading} size={50} />}
-        <div className="grid grid-cols-2 md:grid-cols-4  gap-8 ">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 ">
            
             {finalProducts.map(product => <PopularProducts key={product.id} product={product} ></PopularProducts>)}
       </div>
