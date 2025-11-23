@@ -1,10 +1,9 @@
-import { useLoaderData, useNavigation } from "react-router";
-
-import { useState } from "react";
-import Banner from '../Banner/Banner'
 import ProductSection from "../ProductSection/ProductSection";
-export default function Home() {
-  const products = useLoaderData()
+import { useLoaderData, useNavigation } from "react-router";
+import { useState } from "react";
+
+export default function Shop() {
+     const products = useLoaderData()
   const [category, setCategory] = useState('')
   const filterProduct =
   category === '' ?
@@ -17,16 +16,13 @@ export default function Home() {
   const navigation = useNavigation()
   const isLoading = navigation.state === 'loading'
   return (
-    
     <div>
-      <Banner></Banner>
-      <ProductSection  
-      category={category} 
-      categoryHandle={categoryHandle}
-      finalProducts={finalProducts}
-      isLoading={isLoading}
-
-      ></ProductSection>
+        <ProductSection  
+             category={category} 
+             categoryHandle={categoryHandle}
+             finalProducts={finalProducts}
+             isLoading={isLoading}
+             ></ProductSection>
     </div>
   )
 }

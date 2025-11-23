@@ -1,8 +1,6 @@
-import { useState } from "react"
-import { useNavigation } from "react-router"
-
+import { Link } from "react-router"
 export default function PopularProducts({product}) {
-    const {title,price,images,discountPercentage}= product
+    const {title,price,images,discountPercentage,id}= product
   return (
    <>
   
@@ -16,6 +14,11 @@ export default function PopularProducts({product}) {
         <p>
            <span className="text-gray-400">${price}</span>
         </p>
+        <div>
+            <Link to={`/product/${id}`} className="text-blue-500 underline">
+        View Details
+      </Link>
+        </div>
     </div>
    </>
   )
