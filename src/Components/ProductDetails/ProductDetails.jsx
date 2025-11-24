@@ -9,7 +9,6 @@ import Swal from 'sweetalert2';
 export default function ProductDetails() {
     const product = useLoaderData();
     const { title, description, price, images } = product;
-    // add local Storage
     const handleAddToCart = () => {
         addToCart(product);
        Swal.fire({
