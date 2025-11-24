@@ -1,6 +1,7 @@
 import { useState } from "react"
 import {getCart} from '../utilities/localStorage'
 import CartContent from "./CartContent";
+
 export default function Cart() {
     const [cart ,setCart] = useState([]);
     useState(()=>{

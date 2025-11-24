@@ -1,8 +1,28 @@
 
 import { useState } from "react";
+import Swal from "sweetalert2";
 export default function CartContent({ product, handleDelete }) {
-
     const [showDetails, setShowDetails] = useState(false);
+    const handleDeleteWithAlert = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: `Do you want to remove "${product.title}" from the cart?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleDelete(product.id);
+                Swal.fire(
+                    'Deleted!',
+                    `"${product.title}" has been removed from your cart.`,
+                    'success'
+                )
+            }
+        })
+    }
 
     return (
         <div className="p-4 border border-gray-400 rounded-lg shadow-md mt-5 ">
@@ -26,7 +46,7 @@ export default function CartContent({ product, handleDelete }) {
                             {showDetails ? "Hide Details" : "Details"}
                         </button>
                         <button
-                            onClick={() => handleDelete(product.id)}
+                            onClick={handleDeleteWithAlert}
                             className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 text-sm"
                         >
                             Delete

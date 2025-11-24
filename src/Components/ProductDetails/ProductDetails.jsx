@@ -5,13 +5,21 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import {addToCart} from '../utilities/localStorage'
+import Swal from 'sweetalert2';
 export default function ProductDetails() {
     const product = useLoaderData();
     const { title, description, price, images } = product;
     // add local Storage
     const handleAddToCart = () => {
         addToCart(product);
-        alert('product added to cart')
+       Swal.fire({
+            title: 'Added to Cart!',
+            text: `${title} has been added to your cart.`,
+            icon: 'success',
+            confirmButtonText: 'OK',
+            timer: 2000,        // auto close after 2 sec
+            timerProgressBar: true,
+        });
     }
     return (
         <div className="container mx-auto p-5 md:flex gap-10 mt-12 md:mt-25">
