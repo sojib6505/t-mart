@@ -4,13 +4,17 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
+import {addToCart} from '../utilities/localStorage'
 export default function ProductDetails() {
     const product = useLoaderData();
     const { title, description, price, images } = product;
-
+    // add local Storage
+    const handleAddToCart = () => {
+        addToCart(product);
+        alert('product added to cart')
+    }
     return (
-        <div className="container mx-auto p-5 md:flex gap-10 mt-25">
+        <div className="container mx-auto p-5 md:flex gap-10 mt-12 md:mt-25">
             <div className="md:w-1/2">
                 <Swiper
                     modules={[Navigation, Pagination]}
@@ -30,7 +34,7 @@ export default function ProductDetails() {
                 <h2 className="text-3xl font-bold">{title}</h2>
                 <p className="text-xl font-semibold text-green-600">${price}</p>
                 <p className="text-gray-700">{description}</p>
-                <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-40 mt-5">
+                <button onClick={handleAddToCart} className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-40 mt-5 cursor-pointer">
                     Add to Cart
                 </button>
             </div>
