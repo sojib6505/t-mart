@@ -7,7 +7,6 @@ export default function Cart() {
     useState(()=>{
         setCart(getCart())
     },[])
-
     const handleDelete = (id) => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const filtered = cart.filter(item => item.id !== id);

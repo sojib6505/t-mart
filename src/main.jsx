@@ -8,6 +8,7 @@ import Furnitures from './Components/Furnitures/Furnitures.jsx'
 import Shop from './Components/Shop/Shop.jsx'
 import ProductDetails from './Components/ProductDetails/ProductDetails.jsx'
 import Cart from './Components/Cart/Cart.jsx'
+import Error from './Components/Error/Error.jsx'
 const router = createBrowserRouter([
   {
     path:'/',
@@ -40,11 +41,14 @@ const router = createBrowserRouter([
 {
   path: 'cart',
   Component: Cart
+},
+{path:'*',
+  Component: Error
 }
+
     ]
   }
 ])
-
 createRoot(document.getElementById('root')).render(
     <RouterProvider router={router}></RouterProvider>
 )

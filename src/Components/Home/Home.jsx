@@ -3,6 +3,7 @@ import { useLoaderData, useNavigation } from "react-router";
 import { useState } from "react";
 import Banner from '../Banner/Banner'
 import ProductSection from "../ProductSection/ProductSection";
+import Footer from "../Footer/Footer";
 export default function Home() {
   const products = useLoaderData()
   const [category, setCategory] = useState('')
@@ -27,6 +28,7 @@ export default function Home() {
       isLoading={isLoading}
 
       ></ProductSection>
+      <Footer></Footer>
     </div>
   )
 }

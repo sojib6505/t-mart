@@ -16,7 +16,7 @@ export default function ProductDetails() {
             text: `${title} has been added to your cart.`,
             icon: 'success',
             confirmButtonText: 'OK',
-            timer: 2000,        // auto close after 2 sec
+            timer: 2000,     
             timerProgressBar: true,
         });
     }
